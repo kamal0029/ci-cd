@@ -84,7 +84,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD}}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -106,7 +106,7 @@ jobs:
         env:
           API_URL: https://api.prod.example.com
           DB_NAME: prod_db
-        run: |
+        run: |  
           echo "Deploy branch: main"
           echo "API_URL=$API_URL"
           echo "DB_NAME=$DB_NAME"
